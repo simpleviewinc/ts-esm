@@ -1,5 +1,8 @@
 {
+	"type": "module",
 	"dependencies": {
+		"@tsconfig/node16": "1.0.3",
+		"@types/node": "18.0.6",
 		"eslint": "8.20.0",
 		"mocha": "10.0.0",
 		"p-memoize": "7.1.0",
@@ -11,7 +14,8 @@
 	"scripts": {
 		"build": "docker build . -t ts-esm:local",
 		"docker": "npm run build && docker run -it -v $PWD/package.json:/app/package.json -v $PWD/tsconfig.json:/app/tsconfig.json -v $PWD/lib:/app/lib ts-esm:local /bin/bash",
-		"start": "node ./lib/server.ts",
+		"start": "node --loader ts-node/esm ./lib/server.ts",
 		"sync-state": "bash ./scripts/sync-state"
-	}
+	},
+	"packageManager": "yarn@3.1.1"
 }
