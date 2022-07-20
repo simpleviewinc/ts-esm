@@ -1,0 +1,14 @@
+{
+	"dependencies": {
+		"node-dev": "7.4.3",
+		"pm2": "5.2.0",
+		"p-memoize": "7.1.0",
+		"ts-node": "10.9.1",
+		"typescript": "4.7.4"
+	},
+	"scripts": {
+		"build": "docker build . -t ts-esm:local",
+		"docker": "npm run build && docker run -it -v $PWD/package.json:/app/package.json -v $PWD/tsconfig.json:/app/tsconfig.json -v $PWD/lib:/app/lib ts-esm:local /bin/bash",
+		"start": "node ./lib/server.ts"
+	}
+}

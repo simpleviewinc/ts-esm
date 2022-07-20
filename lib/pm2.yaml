@@ -1,0 +1,6 @@
+apps:
+  - script: "server.ts"
+    watch: true
+    watch_options:
+      usePolling: true
+    pmx: false
