@@ -3,6 +3,7 @@ NAME=ts-esm
 
 docker create --name $NAME $NAME:local /bin/bash
 docker cp $NAME:/app/package.json $PWD/package.json
+docker cp $NAME:/app/yarn.lock $PWD/yarn.lock
 docker cp $NAME:/app/.yarn $PWD/
 docker rm -fv $NAME
 echo "complete"
