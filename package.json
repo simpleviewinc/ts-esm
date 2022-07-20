@@ -11,6 +11,7 @@
 	"scripts": {
 		"build": "docker build . -t ts-esm:local",
 		"docker": "npm run build && docker run -it -v $PWD/package.json:/app/package.json -v $PWD/tsconfig.json:/app/tsconfig.json -v $PWD/lib:/app/lib ts-esm:local /bin/bash",
-		"start": "node ./lib/server.ts"
+		"start": "node ./lib/server.ts",
+		"sync-state": "bash ./scripts/sync-state"
 	}
 }
